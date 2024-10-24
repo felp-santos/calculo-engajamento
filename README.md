@@ -90,27 +90,27 @@ Considere os seguintes dados de uma campanha de email marketing:
 
 1. **Taxa de Abertura (`openRate`):**
 
-   $$
+   $
    \text{openRate} = \left( \frac{1.131}{2.028} \right) \times 100 \approx 55,80\%
-   $$
+   $
 
 2. **Taxa de Click-Through (`clickThroughRate`):**
 
-   $$
+   $
    \text{clickThroughRate} = \left( \frac{35}{2.028} \right) \times 100 \approx 1,73\%
-   $$
+   $
 
 3. **Taxa de Click-to-Open (`clickToOpenRate`):**
 
-   $$
+   $
    \text{clickToOpenRate} = \left( \frac{35}{1.131} \right) \times 100 \approx 3,09\%
-   $$
+   $
 
 4. **Taxa de Resposta (`replyRate`):**
 
-   $$
+   $
    \text{replyRate} = 0,00\%
-   $$
+   $
 
 ### Determinação das Pontuações
 
