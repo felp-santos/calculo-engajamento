@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Engajamento</title>
+    <!-- Incluir MathJax para renderizar fórmulas matemáticas -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async 
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <!-- Estilos básicos para melhorar a aparência -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+        h1, h2, h3, h4 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        /* Responsividade para dispositivos menores */
+        @media (max-width: 600px) {
+            body {
+                margin: 20px;
+            }
+            table, th, td {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Cálculo de Engajamento</h1>
+
+    <h2>Visão Geral</h2>
+
+    <p>Este documento descreve a lógica utilizada para calcular diferentes tipos de engajamento com base em métricas específicas. As métricas avaliadas incluem:</p>
+
+    <ul>
+        <li><strong>Engajamento de Abertura</strong></li>
+        <li><strong>Engajamento de Click-Through</strong></li>
+        <li><strong>Engajamento de Click-to-Open</strong></li>
+        <li><strong>Engajamento de Resposta</strong></li>
+    </ul>
+
+    <p>Cada métrica é calculada comparando taxas específicas com limiares predefinidos, resultando em uma pontuação de engajamento que reflete o desempenho relativo.</p>
+
+    <h2>Métricas de Engajamento</h2>
+
+    <h3>1. Engajamento de Abertura</h3>
+
+    <p><strong>Definição:</strong> Mede o percentual de destinatários que abriram a mensagem enviada.</p>
+
+    <p><strong>Limiar e Pontuação:</strong></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Taxa de Abertura (%)</th>
+                <th>Pontuação de Engajamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>≥ 25</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>≥ 20 e &lt; 25</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>≥ 15 e &lt; 20</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>≥ 10 e &lt; 15</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>&lt; 10</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>2. Engajamento de Click-Through</h3>
+
+    <p><strong>Definição:</strong> Mede o percentual de destinatários que clicaram em pelo menos um link presente na mensagem.</p>
+
+    <p><strong>Limiar e Pontuação:</strong></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Taxa de Click-Through (%)</th>
+                <th>Pontuação de Engajamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>≥ 5</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>≥ 3 e &lt; 5</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>≥ 2 e &lt; 3</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>≥ 1 e &lt; 2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>&lt; 1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3. Engajamento de Click-to-Open</h3>
+
+    <p><strong>Definição:</strong> Mede o percentual de destinatários que clicaram em um link após abrir a mensagem.</p>
+
+    <p><strong>Limiar e Pontuação:</strong></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Taxa de Click-to-Open (%)</th>
+                <th>Pontuação de Engajamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>≥ 50</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>≥ 40 e &lt; 50</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>≥ 30 e &lt; 40</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>≥ 20 e &lt; 30</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>&lt; 20</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4. Engajamento de Resposta</h3>
+
+    <p><strong>Definição:</strong> Mede o percentual de destinatários que responderam à mensagem.</p>
+
+    <p><strong>Limiar e Pontuação:</strong></p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Taxa de Resposta (%)</th>
+                <th>Pontuação de Engajamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>≥ 5</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>≥ 3 e &lt; 5</td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td>≥ 2 e &lt; 3</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>≥ 1 e &lt; 2</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>&lt; 1</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Processo de Cálculo</h2>
+
+    <p>Para cada tipo de engajamento:</p>
+
+    <ol>
+        <li><strong>Recebimento da Taxa:</strong> A taxa específica (por exemplo, taxa de abertura) é calculada com base nos dados fornecidos.</li>
+        <li><strong>Comparação com Limiar:</strong> A taxa é comparada com os limiares predefinidos na tabela correspondente.</li>
+        <li><strong>Atribuição de Pontuação:</strong> A pontuação de engajamento é atribuída com base na faixa em que a taxa se enquadra.</li>
+        <li><strong>Pontuação Padrão:</strong> Se a taxa não atingir nenhum dos limiares superiores, a pontuação mais baixa é atribuída.</li>
+    </ol>
+
+    <h2>Exemplo de Cálculo</h2>
+
+    <p>Considere os seguintes dados de uma campanha de email marketing:</p>
+
+    <ul>
+        <li><strong>Emails Enviados:</strong> 2.028</li>
+        <li><strong>Emails Abertos:</strong> 1.131</li>
+        <li><strong>Cliques:</strong> 35</li>
+    </ul>
+
+    <h3>Cálculo das Taxas</h3>
+
+    <ol>
+        <li>
+            <strong>Taxa de Abertura (<em>openRate</em>):</strong>
+            <br>
+            $$
+            \text{openRate} = \left( \frac{1.131}{2.028} \right) \times 100 \approx 55,80\%
+            $$
+        </li>
+        <li>
+            <strong>Taxa de Click-Through (<em>clickThroughRate</em>):</strong>
+            <br>
+            $$
+            \text{clickThroughRate} = \left( \frac{35}{2.028} \right) \times 100 \approx 1,73\%
+            $$
+        </li>
+        <li>
+            <strong>Taxa de Click-to-Open (<em>clickToOpenRate</em>):</strong>
+            <br>
+            $$
+            \text{clickToOpenRate} = \left( \frac{35}{1.131} \right) \times 100 \approx 3,09\%
+            $$
+        </li>
+        <li>
+            <strong>Taxa de Resposta (<em>replyRate</em>):</strong>
+            <br>
+            $$
+            \text{replyRate} = 0,00\%
+            $$
+        </li>
+    </ol>
+
+    <h3>Determinação das Pontuações</h3>
+
+    <ol>
+        <li>
+            <strong>Engajamento de Abertura:</strong>
+            <ul>
+                <li><strong>Taxa:</strong> 55,80%</li>
+                <li><strong>Faixa:</strong> ≥ 25%</li>
+                <li><strong>Pontuação:</strong> 5</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Engajamento de Click-Through:</strong>
+            <ul>
+                <li><strong>Taxa:</strong> 1,73%</li>
+                <li><strong>Faixa:</strong> ≥ 1% e &lt; 2%</li>
+                <li><strong>Pontuação:</strong> 2</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Engajamento de Click-to-Open:</strong>
+            <ul>
+                <li><strong>Taxa:</strong> 3,09%</li>
+                <li><strong>Faixa:</strong> ≥ 2% e &lt; 3%</li>
+                <li><strong>Pontuação:</strong> 3</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Engajamento de Resposta:</strong>
+            <ul>
+                <li><strong>Taxa:</strong> 0,00%</li>
+                <li><strong>Faixa:</strong> &lt; 1%</li>
+                <li><strong>Pontuação:</strong> 1</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>Resumo das Pontuações</h3>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Métrica</th>
+                <th>Taxa Calculada</th>
+                <th>Pontuação de Engajamento</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Engajamento de Abertura</td>
+                <td>55,80%</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Engajamento de Click-Through</td>
+                <td>1,73%</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Engajamento de Click-to-Open</td>
+                <td>3,09%</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Engajamento de Resposta</td>
+                <td>0,00%</td>
+                <td>1</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Considerações Finais</h2>
+
+    <ul>
+        <li><strong>Interpretação das Pontuações:</strong> Pontuações mais altas indicam melhor desempenho em cada categoria de engajamento.</li>
+        <li><strong>Ações Estratégicas:</strong> Com base nas pontuações, estratégias podem ser desenvolvidas para melhorar áreas com desempenho inferior.</li>
+        <li><strong>Ajuste de Limiar:</strong> Os limiares e pontuações podem ser ajustados conforme as necessidades específicas de cada campanha ou negócio.</li>
+    </ul>
+</body>
+</html>
