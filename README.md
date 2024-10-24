@@ -90,9 +90,9 @@ Considere os seguintes dados de uma campanha de email marketing:
 
 1. **Taxa de Abertura (`openRate`):**
 
-   $
+   $$
    \text{openRate} = \left( \frac{1.131}{2.028} \right) \times 100 \approx 55,80\%
-   $
+   $$
 
 2. **Taxa de Click-Through (`clickThroughRate`):**
 
